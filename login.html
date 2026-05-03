@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | GenZyra Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Inter',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f0f4ff,#faf0ff);}
+        .card{background:#fff;border-radius:24px;padding:3rem 2.5rem;width:100%;max-width:440px;box-shadow:0 20px 60px rgba(79,70,229,.12);}
+        .logo{font-size:1.75rem;font-weight:800;text-align:center;background:linear-gradient(135deg,#4f46e5,#c026d3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem;}
+        .sub{text-align:center;color:#6b7280;font-size:.95rem;margin-bottom:2.5rem;}
+        label{display:block;font-size:.875rem;font-weight:600;color:#1f2937;margin-bottom:.4rem;}
+        input{width:100%;padding:1rem 1.25rem;border:1.5px solid #e5e7eb;border-radius:12px;font-family:inherit;font-size:1rem;color:#1f2937;margin-bottom:1.25rem;transition:border-color .25s,box-shadow .25s;}
+        input:focus{outline:none;border-color:#4f46e5;box-shadow:0 0 0 4px rgba(79,70,229,.1);}
+        .btn{width:100%;padding:1rem;background:linear-gradient(135deg,#4f46e5,#c026d3);color:#fff;border:none;border-radius:12px;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;transition:opacity .25s,transform .25s;display:flex;align-items:center;justify-content:center;gap:.5rem;}
+        .btn:hover{opacity:.9;transform:translateY(-2px);}
+        #err{color:#b91c1c;background:#fef2f2;border:1px solid #fca5a5;border-radius:10px;padding:.75rem 1rem;font-size:.875rem;margin-bottom:1.25rem;display:none;}
+        .back{display:block;text-align:center;margin-top:1.5rem;color:#6b7280;font-size:.875rem;text-decoration:none;transition:color .25s;}
+        .back:hover{color:#4f46e5;}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="logo">GenZyra.</div>
+        <p class="sub">Admin Panel — Sign In</p>
+        <div id="err"></div>
+        <form id="loginForm">
+            <label>Email Address</label>
+            <input type="email" id="em" placeholder="admin@genzyra.com" required>
+            <label>Password</label>
+            <input type="password" id="pw" placeholder="••••••••" required>
+            <button type="submit" class="btn" id="loginBtn">
+                <i class="bx bx-log-in"></i> Sign In
+            </button>
+        </form>
+        <a href="index.html" class="back">← Back to website</a>
+    </div>
+    <script>
+        const cfg={apiKey:"AIzaSyDo-4pAKhQJfijW9r53_pxyroEjygyxYeo",authDomain:"genzyra-ef740.firebaseapp.com",projectId:"genzyra-ef740",storageBucket:"genzyra-ef740.firebasestorage.app",messagingSenderId:"412063629189",appId:"1:412063629189:web:ec73b025f98167e8170eec"};
+        firebase.initializeApp(cfg);
+        const auth=firebase.auth();
+        auth.onAuthStateChanged(u=>{if(u)window.location.href='admin.html';});
+        const err=document.getElementById('err');
+        document.getElementById('loginForm').addEventListener('submit',async e=>{
+            e.preventDefault(); err.style.display='none';
+            const btn=document.getElementById('loginBtn');
+            btn.disabled=true; btn.innerHTML='<i class="bx bx-loader-alt bx-spin"></i> Signing in…';
+            try{
+                await auth.signInWithEmailAndPassword(document.getElementById('em').value.trim(),document.getElementById('pw').value);
+                window.location.href='admin.html';
+            }catch(ex){
+                const m={'auth/user-not-found':'No account found.','auth/wrong-password':'Wrong password.','auth/invalid-email':'Invalid email.','auth/too-many-requests':'Too many attempts. Try later.'};
+                err.textContent=m[ex.code]||'Login failed.'; err.style.display='block';
+                btn.disabled=false; btn.innerHTML='<i class="bx bx-log-in"></i> Sign In';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenZyra | Modern Tech Solutions</title>
+    <meta name="description"
+        content="GenZyra builds websites, mobile apps, UI/UX designs and AI solutions for modern businesses.">
+    <link rel="stylesheet" href="./styles.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Firebase CDN (Compat mode — supports db.collection() syntax) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+</head>
+
+<body>
+
+    <!-- ─── NAVBAR ─────────────────────────────────── -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">GenZyra.</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu"><i class="bx bx-menu"></i></div>
+        </div>
+    </header>
+
+    <!-- ─── HERO ───────────────────────────────────── -->
+    <section id="home" class="hero">
+        <div class="hero-blob blob-1"></div>
+        <div class="hero-blob blob-2"></div>
+        <div class="container hero-container">
+            <div class="hero-content fade-in-up">
+                <div class="badge"><i class="bx bx-rocket"></i> Modern Tech Agency</div>
+                <h1>Empowering the Future with <span class="gradient-text">Intelligent Solutions</span></h1>
+                <p>We build elegant websites, powerful mobile apps, beautiful UI/UX designs and cutting-edge AI
+                    solutions that scale your business.</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn-primary">View Our Work <i class="bx bx-right-arrow-alt"></i></a>
+                    <a href="#contact" class="btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-img-wrap fade-in delay-2">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                    alt="GenZyra — Tech Illustration" class="hero-img pop-in">
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── ABOUT ──────────────────────────────────── -->
+    <section id="about" class="about section-bg">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>About GenZyra</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content fade-in-up delay-1">
+                <div class="about-text">
+                    <h3>Who We Are</h3>
+                    <p>GenZyra is a forward-thinking technology company dedicated to delivering exceptional digital
+                        experiences. We bridge the gap between elegant design and robust engineering — turning bold
+                        ideas into products that perform at scale.</p>
+                    <p>Our team of expert developers, designers, and AI specialists work hand-in-hand with clients to
+                        build solutions that are not just beautiful, but purposeful and long-lasting.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card glass-card">
+                        <h4>50+</h4>
+                        <p>Projects Delivered</p>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <h4>99%</h4>
+                        <p>Client Satisfaction</p>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <h4>24/7</h4>
+                        <p>Support Available</p>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <h4>5+</h4>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SERVICES ───────────────────────────────── -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Our Services</h2>
+                <div class="underline"></div>
+                <p>Comprehensive tech solutions tailored to your unique needs.</p>
+            </div>
+            <div class="services-grid fade-in-up delay-1">
+                <div class="service-card glass-card">
+                    <div class="service-icon"><i class="bx bx-laptop"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Responsive, fast, and scalable web applications built with the latest modern frameworks.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="service-icon"><i class="bx bx-mobile-alt"></i></div>
+                    <h3>Mobile Apps</h3>
+                    <p>Native and cross-platform mobile experiences that users love to engage with.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="service-icon"><i class="bx bx-palette"></i></div>
+                    <h3>UI/UX Design</h3>
+                    <p>Clean, intuitive interfaces focused on maximizing conversion and usability.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="service-icon"><i class="bx bx-brain"></i></div>
+                    <h3>AI Solutions</h3>
+                    <p>Integrating artificial intelligence to automate processes and generate insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PORTFOLIO ──────────────────────────────── -->
+    <section id="portfolio" class="portfolio section-bg">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Our Portfolio</h2>
+                <div class="underline"></div>
+                <p>Selected works from our recent digital ventures.</p>
+            </div>
+            <div class="portfolio-grid fade-in-up delay-1">
+
+                <!-- 1 -->
+                <div class="portfolio-card glass-card"
+                     data-title="Business Website"
+                     data-tag="Web Development"
+                     data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+                     data-tech="HTML, CSS, JavaScript, WordPress"
+                     data-desc="A modern corporate website built to communicate brand value, drive leads, and convert visitors. Features a fully responsive layout, animated hero section, service cards, testimonials, and an integrated contact form optimised for conversion.">
+                    <div class="portfolio-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Business Website">
+                        <div class="portfolio-overlay"><i class="bx bx-zoom-in"></i></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Web Development</span>
+                        <h4>Business Website</h4>
+                        <p>Corporate site with high-conversion landing pages.</p>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="portfolio-card glass-card"
+                     data-title="E-commerce Platform"
+                     data-tag="Full-Stack"
+                     data-img="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80"
+                     data-tech="React, Node.js, Stripe, Firebase"
+                     data-desc="An end-to-end e-commerce solution with a product catalogue, cart system, Stripe payment integration, and an admin inventory panel. Built for performance with lazy-loaded images and a Firestore backend.">
+                    <div class="portfolio-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="E-commerce Platform">
+                        <div class="portfolio-overlay"><i class="bx bx-zoom-in"></i></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Full-Stack</span>
+                        <h4>E-commerce Platform</h4>
+                        <p>Shopping platform with cart, payments, and management.</p>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="portfolio-card glass-card"
+                     data-title="Mobile App UI"
+                     data-tag="Mobile App"
+                     data-img="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80"
+                     data-tech="React Native, Figma, Firebase"
+                     data-desc="A cross-platform mobile application designed with a focus on clean UX and smooth navigation. The app delivers a native-feel experience on both iOS and Android with custom UI components and a Firestore back-end for real-time data.">
+                    <div class="portfolio-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Mobile App UI">
+                        <div class="portfolio-overlay"><i class="bx bx-zoom-in"></i></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Mobile App</span>
+                        <h4>Mobile App UI</h4>
+                        <p>Cross-platform app with seamless UX design.</p>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="portfolio-card glass-card"
+                     data-title="AI Dashboard"
+                     data-tag="AI / Data"
+                     data-img="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1200&q=80"
+                     data-tech="Python, TensorFlow, React, Chart.js"
+                     data-desc="A real-time AI analytics dashboard that visualises machine-learning model outputs and key business KPIs. Features interactive charts, live data feeds, anomaly detection alerts, and a role-based access system.">
+                    <div class="portfolio-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=800&q=80" alt="AI Dashboard">
+                        <div class="portfolio-overlay"><i class="bx bx-zoom-in"></i></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">AI / Data</span>
+                        <h4>AI Dashboard</h4>
+                        <p>Real-time analytics with ML insights and charts.</p>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="portfolio-card glass-card"
+                     data-title="Portfolio Website"
+                     data-tag="UI/UX Design"
+                     data-img="https://images.unsplash.com/photo-1545665277-5937489579f2?auto=format&fit=crop&w=1200&q=80"
+                     data-tech="HTML, CSS, GSAP, Vanilla JS"
+                     data-desc="A creative personal portfolio for a graphic designer, featuring smooth GSAP scroll animations, a project filter gallery, dark and light mode toggle, and an accessible contact form. Achieved a perfect Lighthouse performance score.">
+                    <div class="portfolio-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1545665277-5937489579f2?auto=format&fit=crop&w=800&q=80" alt="Portfolio Website">
+                        <div class="portfolio-overlay"><i class="bx bx-zoom-in"></i></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">UI/UX Design</span>
+                        <h4>Portfolio Website</h4>
+                        <p>Creative designer portfolio with GSAP animations.</p>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="portfolio-card glass-card"
+                     data-title="SaaS Web App"
+                     data-tag="SaaS"
+                     data-img="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80"
+                     data-tech="Next.js, Tailwind, Supabase, Stripe"
+                     data-desc="A subscription-based SaaS platform for project management teams. Includes user authentication, team workspaces, kanban boards, file uploads, usage-based billing via Stripe, and a comprehensive admin analytics panel.">
+                    <div class="portfolio-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt="SaaS Web App">
+                        <div class="portfolio-overlay"><i class="bx bx-zoom-in"></i></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">SaaS</span>
+                        <h4>SaaS Web App</h4>
+                        <p>Project management SaaS with billing and workspaces.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CONTACT ────────────────────────────────── -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Get In Touch</h2>
+                <div class="underline"></div>
+                <p>Let's build something extraordinary together.</p>
+            </div>
+            <div class="contact-content fade-in-up delay-1">
+
+                <!-- Left: info -->
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="bx bx-envelope"></i>
+                        <a href="mailto:genzyra21st@gmail.com">genzyra21st@gmail.com</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="bx bxl-whatsapp"></i>
+                        <a href="https://wa.me/919999999999" target="_blank">WhatsApp Us</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="bx bxl-instagram"></i>
+                        <a href="https://www.instagram.com/genzyra" target="_blank">@genzyra</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="bx bxl-linkedin"></i>
+                        <a href="https://www.linkedin.com/company/genzyra/"
+                            target="_blank">linkedin.com/company/genzyra</a>
+                    </div>
+                </div>
+
+                <!-- Right: form -->
+                <form class="contact-form glass-card" id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="c-name">Full Name</label>
+                        <input type="text" id="c-name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="c-email">Email Address</label>
+                        <input type="email" id="c-email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="c-message">Message</label>
+                        <textarea id="c-message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-submit" id="submitBtn">
+                        Send Message <i class="bx bx-send"></i>
+                    </button>
+                    <!-- Toast notification -->
+                    <div id="formToast" class="form-toast hidden"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─────────────────────────────────── -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">GenZyra.</div>
+                <p>Building the future, one line of code at a time.</p>
+            </div>
+            <div class="footer-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                </ul>
+            </div>
+            <div class="footer-social-block">
+                <h5>Connect With Us</h5>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/genzyra" target="_blank" aria-label="Instagram">
+                        <i class="bx bxl-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/genzyra/" target="_blank" aria-label="LinkedIn">
+                        <i class="bx bxl-linkedin"></i>
+                    </a>
+                    <a href="mailto:genzyra21st@gmail.com" aria-label="Email">
+                        <i class="bx bx-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/919999999999" target="_blank" aria-label="WhatsApp">
+                        <i class="bx bxl-whatsapp"></i>
+                    </a>
+                </div>
+                <a href="admin.html" class="admin-link">Admin Panel →</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> GenZyra. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ─── PORTFOLIO MODAL ───────────────────────── -->
+    <div id="portfolioModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-box glass-card">
+            <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+            <img id="modalImg" src="" alt="" class="modal-img">
+            <div class="modal-body">
+                <span class="portfolio-tag" id="modalTag"></span>
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+                <div class="modal-tech">
+                    <strong>Technologies:</strong>
+                    <div id="modalTech" class="tech-pills"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
